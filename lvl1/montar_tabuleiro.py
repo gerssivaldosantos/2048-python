@@ -51,4 +51,3 @@ def montar_tabuleiro(matriz):
         print("-" * ((tam_coluna * espaço) + tam_coluna + 1))
 
 
-montar_tabuleiro([[2, 3, 4, 256, 102499999], [2, 3, 4, 34, 2], [4, 5, 0, 4, 3]])
