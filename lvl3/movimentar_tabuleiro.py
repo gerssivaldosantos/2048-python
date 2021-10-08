@@ -49,19 +49,18 @@ def movimentar_tabuleiro(tabuleiro, direcao):
         for linha in tabuleiro:
             nova_linha = mover_zeros(linha,"d")
             aux.append(nova_linha)
-    elif direcao == "w":
+    elif direcao == "s":
         tabuleiro = transpor_matriz(tabuleiro)
         for linha in tabuleiro:
             nova_linha = mover_zeros(linha,"a")   
             aux.append(nova_linha)
-            reversa = transpor_matriz(aux)
-            aux = reversa
-    elif direcao == "s":
+        
+        aux = transpor_matriz(aux)
+    elif direcao == "w":
         tabuleiro = transpor_matriz(tabuleiro)
         for linha in tabuleiro:
             nova_linha = mover_zeros(linha,"d")  
             aux.append(nova_linha)
-            reversa = transpor_matriz(aux)
-            aux = reversa
+        aux = transpor_matriz(aux)
     
     return aux
