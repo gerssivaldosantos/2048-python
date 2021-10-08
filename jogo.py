@@ -14,6 +14,7 @@ from lvl2.transpor_matriz import transpor_matriz
 from lvl2.status_tabuleiro import status_tabuleiro
 #level 3
 from lvl3.movimentar_tabuleiro import movimentar_tabuleiro
+from lvl3.somar_tabuleiro import somar_tabuleiro
 
 def main():
     #Exibindo menu com Banner do jogo gerado em figlet
@@ -28,6 +29,8 @@ def main():
         #do usuário
         jogada = receber_jogada()
         tabuleiro = movimentar_tabuleiro(tabuleiro,jogada)
+        tabuleiro = somar_tabuleiro(tabuleiro,jogada)
+        tabuleiro = gerar_aleatorio(tabuleiro)
         montar_tabuleiro(tabuleiro)
     
 
