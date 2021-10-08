@@ -34,7 +34,7 @@ def montar_tabuleiro(matriz):
     tam_coluna = len(matriz[0])
 
     m_num = maior_numero(matriz)
-    espaço = len(str(m_num))
+    espaço = len(str(m_num)) + 2
     
     print("-" * ((tam_coluna * espaço) + tam_coluna + 1))
 

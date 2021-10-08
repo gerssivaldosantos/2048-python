@@ -21,3 +21,4 @@ def transpor_matriz(matriz):
             matriz_transposta[coluna][linha] = matriz[linha][coluna]
 
     return matriz_transposta
+

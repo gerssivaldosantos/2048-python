@@ -46,4 +46,3 @@ def somar_adjacentes(linha, direcao):
     return aux
 
 
-somar_adjacentes([0, 2, 2, 0, 4, 4, 4], "a")

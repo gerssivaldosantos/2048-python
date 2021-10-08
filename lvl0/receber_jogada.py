@@ -5,6 +5,10 @@ def receber_jogada():
     while True:
         #Conferindo se a jogada faz parte do conjunto
         #de válidas
-        jogada = str(input("Digite a jogada : "))
+        jogada = input("""  
+  W
+A S D :""")
         if jogada.lower() in validas:
             return jogada.lower()
+        else:
+            print(f'\n"{jogada}" não é uma jogada válida. ')
