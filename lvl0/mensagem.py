@@ -3,7 +3,7 @@ v´alidas. N˜ao precisa estar perfeito, pois ao juntar tudo no programa princip
 talvez precisem mudar. """
 
 
-def menu():
+def mensagem():
 
     print("""
                         :'#######::::'#####:::'##:::::::::'#######::
@@ -30,6 +30,6 @@ soma de todos os números do tabuleiro, porque caso ele se encha e não seja mai
 o jogo acaba. Então tente fazer o máximo de movimentos possiveis antes disso acontecer !!
 Boa Sorte ! 
     """)
-    #montagem do tabuleiro inicial
+    
 
 
