@@ -11,27 +11,31 @@ from lvl1.montar_tabuleiro import montar_tabuleiro
 from lvl1.gerar_tabuleiro import gerar_tabuleiro
 #level 2
 from lvl2.transpor_matriz import transpor_matriz
-from lvl2.status_tabuleiro import status_tabuleiro
+
 #level 3
 from lvl3.movimentar_tabuleiro import movimentar_tabuleiro
 from lvl3.somar_tabuleiro import somar_tabuleiro
+from lvl3.status_tabuleiro import status_tabuleiro
 
 def main():
     #Exibindo menu com Banner do jogo gerado em figlet
     #Escrevendo regras na tela
     menu()
     #Gerando e montando o tabuleiro
-    tabuleiro = gerar_tabuleiro(n=4)
+    tabuleiro = gerar_tabuleiro(n=3)
     montar_tabuleiro(tabuleiro)
-    while True:
-    
+    status = True
+    while status:
         #Recebendo, validando e recebendo como retorno a jogada
         #do usuário
         jogada = receber_jogada()
+        tab_anterior = tabuleiro
         tabuleiro = movimentar_tabuleiro(tabuleiro,jogada)
         tabuleiro = somar_tabuleiro(tabuleiro,jogada)
-        tabuleiro = gerar_aleatorio(tabuleiro)
-        montar_tabuleiro(tabuleiro)
+        status = status_tabuleiro(tabuleiro)
+        if status:
+            tabuleiro = gerar_aleatorio(tabuleiro)
+            montar_tabuleiro(tabuleiro)
     
 
 main()

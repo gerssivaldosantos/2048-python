@@ -19,7 +19,7 @@ def menu():
     print(""" 
                                         Como jogar ? 
     
-    Ao começar o jogo, um tabuleiro será criado, nele existirá números que são pontencia de 2
+    Ao começar o jogo, um tabuleiro será criado, nele existirá números que são pontencia de 2,
 ao mover as setas (w,s,a,d) você pode indicar as direções para cima (w) para baixo (s) para
 direita (d) e para esquerda (a), ao fazer isso, os números que estiverem em linhas adjascentes 
 na direção que você escolheu e forem iguais serão somados. A cada movimentação, 1 novo valor é inserido
