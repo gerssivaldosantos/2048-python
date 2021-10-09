@@ -21,6 +21,7 @@ def main():
     #Escrevendo regras na tela
     mensagem()
     #Iniciando o record
+    scores = []
     record = 0
     ficar_menu = True
     while ficar_menu:
@@ -30,8 +31,20 @@ def main():
 [ 2 ] Sair do jogo
 Opção: """)
         if opcao == "0":
+            menu_tamanho = True
+            while menu_tamanho:
+                tamanhos_validos = ["3","4","5","6","7","8","9"]
+                tamanho = input("""
+Escolha um tamanho de tabuleiro (3 - 9)
+Tamanho :""")           
+                if tamanho in tamanhos_validos:
+                    tamanho = int(tamanho)
+                    menu_tamanho = False
+                else:
+                    print("\nTamanho inválido.\n")
+
             #Gerando e montando o tabuleiro
-            tabuleiro = gerar_tabuleiro(n=3)
+            tabuleiro = gerar_tabuleiro(n=tamanho)
             #Inicializando o Score do jogo
             score = 0
             #Montagem inicial do tabuleiro
@@ -60,7 +73,24 @@ Opção: """)
                 else:
                     if score > record:
                         record = score
+
+                    scores.append([tamanho,score])
+                    
                     print(f"\nGame Over ! Score: {score}\n")
         elif opcao == "1":
-            print(record)
+            if len(scores) == 0:
+                print("\nAinda não houveram jogadas !\n")
+            else:    
+                print(f"\nMelhor jogada até agora :{record}\n")
+                print("Lista com todos os scores até agora:")
+                print("""
+-----------
+|Tam |Score """)
+            montar_tabuleiro(scores)
+        elif opcao == "2":
+            print("\nJogo Finalizado ! Até mais !\n")
+            ficar_menu = False
+        else:
+            print("\nEntrada inválida, tente novamente ! \n")
+                
 main()
