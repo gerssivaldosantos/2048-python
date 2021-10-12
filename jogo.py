@@ -1,6 +1,34 @@
 from random import choice
 from random import randint
 
+def mensagem():
+
+    print("""
+                        :'#######::::'#####:::'##:::::::::'#######::
+                        '##.... ##::'##.. ##:: ##:::'##::'##.... ##:
+                        ..::::: ##:'##:::: ##: ##::: ##:: ##:::: ##:
+                        :'#######:: ##:::: ##: ##::: ##::: #######::
+                        '##:::::::: ##:::: ##: #########:'##.... ##:
+                        ##::::::::. ##:: ##::...... ##:: ##:::: ##:
+                        #########::. #####::::::::: ##::. #######::
+                        .........::::.....::::::::::..::::.......:::
+                                    Seja bem vindo(a)!
+""")
+    print(""" 
+                                        Como jogar ? 
+    
+    Ao começar o jogo, um tabuleiro será criado, nele existirá números que são pontencia de 2,
+ao mover as setas (w,s,a,d) você pode indicar as direções para cima (w) para baixo (s) para
+direita (d) e para esquerda (a), ao fazer isso, os números que estiverem em linhas adjascentes 
+na direção que você escolheu e forem iguais serão somados. A cada movimentação, 1 novo valor é inserido
+no tabuleiro.
+
+        O objetivo do jogo é mover o tabuleiro de forma que a organização fique a cada vez mais propicia a
+soma de todos os números do tabuleiro, porque caso ele se encha e não seja mais possivel a soma por movimentação
+o jogo acaba. Então tente fazer o máximo de movimentos possiveis antes disso acontecer !!
+Boa Sorte ! 
+    """)
+
 def gerar_tabuleiro(n = 4):
     matriz = []
     while True:
@@ -51,34 +79,6 @@ def gerar_aleatorio(matriz):
 
     return matriz
 
-def mensagem():
-
-    print("""
-                        :'#######::::'#####:::'##:::::::::'#######::
-                        '##.... ##::'##.. ##:: ##:::'##::'##.... ##:
-                        ..::::: ##:'##:::: ##: ##::: ##:: ##:::: ##:
-                        :'#######:: ##:::: ##: ##::: ##::: #######::
-                        '##:::::::: ##:::: ##: #########:'##.... ##:
-                        ##::::::::. ##:: ##::...... ##:: ##:::: ##:
-                        #########::. #####::::::::: ##::. #######::
-                        .........::::.....::::::::::..::::.......:::
-                                    Seja bem vindo(a)!
-""")
-    print(""" 
-                                        Como jogar ? 
-    
-    Ao começar o jogo, um tabuleiro será criado, nele existirá números que são pontencia de 2,
-ao mover as setas (w,s,a,d) você pode indicar as direções para cima (w) para baixo (s) para
-direita (d) e para esquerda (a), ao fazer isso, os números que estiverem em linhas adjascentes 
-na direção que você escolheu e forem iguais serão somados. A cada movimentação, 1 novo valor é inserido
-no tabuleiro.
-
-        O objetivo do jogo é mover o tabuleiro de forma que a organização fique a cada vez mais propicia a
-soma de todos os números do tabuleiro, porque caso ele se encha e não seja mais possivel a soma por movimentação
-o jogo acaba. Então tente fazer o máximo de movimentos possiveis antes disso acontecer !!
-Boa Sorte ! 
-    """)
-
 def receber_jogada():
     """ Lê uma jogada e confere se ela é válida """
     #Lista com as jogadas válidas
@@ -86,13 +86,12 @@ def receber_jogada():
     while True:
         #Conferindo se a jogada faz parte do conjunto
         #de válidas
-        jogada = input("""  
-  W
-A S D :""")
+        jogada = input("""\n  W \nA S D :""")
         if jogada.lower() in validas:
             return jogada.lower()
         else:
             print(f'\n"{jogada}" não é uma jogada válida. ')
+
 def somar_adjacentes(linha, direcao):
 
     if direcao == "a":
@@ -221,6 +220,7 @@ def status_tabuleiro(tabuleiro):
         for numero in linha:
             if numero == 0:
                 return True
+                
     tabuleiro_antigo = tabuleiro
     for movimento in movimentos:
         tabuleiro = somar_tabuleiro(tabuleiro,movimento)[0]
@@ -241,13 +241,14 @@ def movimentar_tabuleiro(tabuleiro, direcao):
         for linha in tabuleiro:
             nova_linha = mover_zeros(linha,"d")
             aux.append(nova_linha)
+
     elif direcao == "s":
         tabuleiro = transpor_matriz(tabuleiro)
         for linha in tabuleiro:
             nova_linha = mover_zeros(linha,"a")   
             aux.append(nova_linha)
-        
         aux = transpor_matriz(aux)
+
     elif direcao == "w":
         tabuleiro = transpor_matriz(tabuleiro)
         for linha in tabuleiro:
@@ -309,7 +310,7 @@ def main():
             menu_tamanho = True
             while menu_tamanho:
                 tamanhos_validos = ["3","4","5","6","7","8","9"]
-                tamanho = input("""\nEscolha um tamanho de tabuleiro (3 - 9)\nTamanho :""")           
+                tamanho = str(input("""\nEscolha um tamanho de tabuleiro (3 - 9)\nTamanho :"""))       
                 if tamanho in tamanhos_validos:
                     tamanho = int(tamanho)
                     menu_tamanho = False
